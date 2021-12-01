@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="Hotel.LoginUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                 xmlns:local="clr-namespace:Hotel"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             FontFamily="Champagne &amp; Limousines">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DialogHost.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel Margin="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
+                <Button x:Name="ButtonClose" Click="ButtonClose_Click" ToolTip="Закрыть" Width="15" Height="15" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
+                    <materialDesign:PackIcon Kind="WindowClose"/>
+                </Button>
+            </StackPanel>
+            <Label Content="Вход" FontWeight="Bold" FontSize="24" Margin="0,10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Ещё нет аккаунта? " HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"/>
+                <TextBlock x:Name="registerLink" Text="Зарегистрируйтесь," MouseLeftButtonUp="registerLink_MouseLeftButtonUp" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#FF2468AC" Cursor="Hand"/>
+            </StackPanel>
+            <TextBlock Text="это не займёт много времени." HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"/>
+            <StackPanel Margin="0 15" Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070"/>
+                <TextBox x:Name="loginTB" materialDesign:HintAssist.Hint="Логин" Width="250" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Key" VerticalAlignment="Center" Foreground="#707070"/>
+                <PasswordBox x:Name="passwordTB" materialDesign:HintAssist.Hint="Пароль" Width="250" Margin="5"/>
+            </StackPanel>
+            <Button x:Name="loginBTN" Click="loginBTN_Click" Margin="20" HorizontalAlignment="Center" Content="Войти" FontSize="18" Width="100" Background="#FF307CD6" BorderBrush="#FF307CD6"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Hotel.RegisterUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hotel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             FontFamily="Champagne &amp; Limousines">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DialogHost.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel Margin="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0">
+                <Button x:Name="ButtonBack" Click="ButtonBack_Click" ToolTip="Назад" HorizontalAlignment="Left" Width="15" Height="15" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
+                    <materialDesign:PackIcon Kind="ArrowBack"/>
+                </Button>
+                <Grid Width="235"/>
+                <Button x:Name="ButtonClose" Click="ButtonClose_Click" ToolTip="Закрыть" HorizontalAlignment="Right" Width="15" Height="15" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
+                    <materialDesign:PackIcon Kind="WindowClose"/>
+                </Button>
+            </StackPanel>
+            <Label Content="Регистрация" FontWeight="Bold" FontSize="24" Margin="0,10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Заполните все поля, отмеченные символом *" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"/>
+                <TextBlock Text="Максимальная длина - 40 символов." HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" >
+                <StackPanel Margin="0 15" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070"/>
+                    <TextBox x:Name="surnameTB" materialDesign:HintAssist.Hint="Фамилия*" MaxLength="40" Width="250" Margin="5" PreviewKeyDown="SpacePreviewKeyDown" PreviewTextInput="LetterPreviewTextInput"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070"/>
+                    <TextBox x:Name="givenNameTB" materialDesign:HintAssist.Hint="Имя*" MaxLength="40" Width="250" Margin="5" PreviewKeyDown="SpacePreviewKeyDown" PreviewTextInput="LetterPreviewTextInput"/>
+                </StackPanel>
+                <StackPanel Margin="0 15" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070"/>
+                    <TextBox x:Name="patronymicTB" materialDesign:HintAssist.Hint="Отчество" MaxLength="40" Width="250" Margin="5" PreviewKeyDown="SpacePreviewKeyDown" PreviewTextInput="LetterPreviewTextInput"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Cellphone" VerticalAlignment="Center" Foreground="#707070"/>
+                    <TextBlock Text="8 -" Margin="5 10"/>
+                    <TextBox x:Name="phoneTB" MaxLength="10" TextChanged="phoneTB_TextChanged" materialDesign:HintAssist.Hint="Телефон" Width="230" Margin="0 5" PreviewKeyDown="SpacePreviewKeyDown" PreviewTextInput="DigitPreviewTextInput"/>
+                </StackPanel>
+                <StackPanel Margin="0 15" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="IdentificationCard" VerticalAlignment="Center" Foreground="#707070"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="passportSerialTB" TextChanged="passportTB_TextChanged" MaxLength="4" materialDesign:HintAssist.Hint="Серия паспорта*" Width="100" Margin="5" VerticalAlignment="Bottom" PreviewKeyDown="SpacePreviewKeyDown" PreviewTextInput="DigitPreviewTextInput"/>
+                        <TextBlock Text="-" Margin="0 10"/>
+                        <TextBox x:Name="passportNumTB" TextChanged="passportTB_TextChanged" MaxLength="6" materialDesign:HintAssist.Hint="Номер паспорта*" Width="135" Margin="5" VerticalAlignment="Bottom" PreviewKeyDown="SpacePreviewKeyDown" PreviewTextInput="DigitPreviewTextInput"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070"/>
+                    <TextBox x:Name="loginTB" materialDesign:HintAssist.Hint="Логин*" MaxLength="40" Width="250" Margin="5"/>
+                </StackPanel>
+                <StackPanel Margin="0 15" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Key" VerticalAlignment="Center" Foreground="#707070"/>
+                    <PasswordBox x:Name="passwordTB" materialDesign:HintAssist.Hint="Пароль*" MaxLength="40" Width="250" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+            <Button x:Name="registerBTN" Click="registerBTN_Click" Margin="20" HorizontalAlignment="Center" Content="Зарегистрироваться" FontSize="18" Width="auto" Background="#FF307CD6" BorderBrush="#FF307CD6"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

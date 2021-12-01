@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Hotel.UserControlAbout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hotel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             FontFamily="Champagne &amp; Limousines">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DialogHost.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel Margin="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
+                <Button x:Name="ButtonClose" Click="ButtonClose_Click" ToolTip="Закрыть" Width="15" Height="15" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
+                    <materialDesign:PackIcon Kind="WindowClose"/>
+                </Button>
+            </StackPanel>
+            <Label Content="Об авторе" FontWeight="Bold" FontSize="24" Margin="0,10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" Margin="15">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Foreground="#707070"/>
+                        <TextBlock Text="Разработчик:" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Cellphone" VerticalAlignment="Center" Foreground="#707070"/>
+                        <TextBlock Text="Телефон:" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Email" VerticalAlignment="Center" Foreground="#707070"/>
+                        <TextBlock Text="Почта:" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Place" VerticalAlignment="Center" Foreground="#707070"/>
+                        <TextBlock Text="Адрес:" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="15">
+                    <TextBlock Text="Степанов Роман" Margin="0 10" HorizontalAlignment="Right" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"/>
+                    <TextBlock Text="+7 (000) 000 00 00" Margin="0 10" HorizontalAlignment="Right" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"/>
+                    <TextBlock Text="hotel.dev@gmail.com" Margin="0 10" HorizontalAlignment="Right" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"/>
+                    <TextBlock Text="г. Тюмень" Margin="0 7" HorizontalAlignment="Right" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="#707070"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="Hotel.UserControlCheckIn"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hotel"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Height="545" Width="804">
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.4}">
+            <StackPanel Orientation="Vertical" Margin="40 0 0 0">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Заселить" FontWeight="Bold" FontSize="24" Margin="0 20 0 20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <Button x:Name="clearBTN" Click="clearBTN_Click" Margin="10 0" ToolTip="Сбросить" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
+                        <materialDesign:PackIcon Kind="Broom" Width="30" Height="30"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" Margin="0 11 30 0">
+                        <StackPanel Margin="0 10" Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070"/>
+                            <TextBox x:Name="surnameTB" materialDesign:HintAssist.Hint="Фамилия*" Width="250" Margin="5" PreviewKeyDown="SpacePreviewKeyDown" PreviewTextInput="LetterPreviewTextInput"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 26" Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070"/>
+                            <TextBox x:Name="givenNameTB" materialDesign:HintAssist.Hint="Имя*" Width="250" Margin="5" PreviewKeyDown="SpacePreviewKeyDown" PreviewTextInput="LetterPreviewTextInput"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 12" Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="#707070"/>
+                            <TextBox x:Name="patronymicTB" materialDesign:HintAssist.Hint="Отчество" Width="250" Margin="5" PreviewKeyDown="SpacePreviewKeyDown" PreviewTextInput="LetterPreviewTextInput"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 12" Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="IdentificationCard" VerticalAlignment="Center" Foreground="#707070"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox x:Name="passportSerialTB" TextChanged="passportTB_TextChanged" MaxLength="4" materialDesign:HintAssist.Hint="Серия паспорта*" Width="100" Margin="5" VerticalAlignment="Bottom" PreviewKeyDown="SpacePreviewKeyDown" PreviewTextInput="DigitPreviewTextInput"/>
+                                <TextBlock Text="-" Margin="0 10"/>
+                                <TextBox x:Name="passportNumTB" TextChanged="passportTB_TextChanged" MaxLength="6" materialDesign:HintAssist.Hint="Номер паспорта*" Width="135" Margin="5" VerticalAlignment="Bottom" PreviewKeyDown="SpacePreviewKeyDown" PreviewTextInput="DigitPreviewTextInput"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0 12" Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Cellphone" VerticalAlignment="Center" Foreground="#707070"/>
+                            <TextBlock Text="8 -" Margin="5 10"/>
+                            <TextBox x:Name="phoneTB" MaxLength="10" TextChanged="phoneTB_TextChanged" materialDesign:HintAssist.Hint="Телефон" Width="230" Margin="0 5" PreviewKeyDown="SpacePreviewKeyDown" PreviewTextInput="DigitPreviewTextInput"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Margin="30 0 0 0">
+                        <StackPanel Margin="0 10" Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="RoomService" VerticalAlignment="Center" Foreground="#707070"/>
+                            <ComboBox x:Name="categoryCB" SelectionChanged="CB_SelectionChanged" DropDownOpened="categoryCB_DropDownOpened" materialDesign:HintAssist.Hint="Категория*" Width="250" Margin="5 12" materialDesign:HintAssist.HintOpacity=".26"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 10" Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="BedEmpty" VerticalAlignment="Center" Foreground="#707070"/>
+                            <ComboBox x:Name="bedsCB" SelectionChanged="CB_SelectionChanged" DropDownOpened="bedsCB_DropDownOpened" materialDesign:HintAssist.Hint="Спальных мест*" Width="250" Margin="5 12" materialDesign:HintAssist.HintOpacity=".26"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 10" Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Door" VerticalAlignment="Center" Foreground="#707070"/>
+                            <ComboBox x:Name="roomsCB" IsEnabled="False" DropDownOpened="roomsCB_DropDownOpened" materialDesign:HintAssist.Hint="Номера*" Width="250" Margin="5 12" materialDesign:HintAssist.HintOpacity=".26"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 2" Orientation="Horizontal">
+                            <DatePicker Name="dateFromDP" materialDesign:HintAssist.Hint="Дата заселения*" Width="125" Margin="5 -0 0 10" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+                            <DatePicker Name="dateToDP" materialDesign:HintAssist.Hint="Дата выселения*" Width="125" Margin="5 0 0 10" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+                            <Button Name="addBTN" Click="addBTN_Click"  Margin="20" HorizontalAlignment="Center" Content="Заселить" FontSize="18" Width="130" Background="#FF307CD6" BorderBrush="#FF307CD6"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:TransitioningContent>
+    </Grid>
+</UserControl>
